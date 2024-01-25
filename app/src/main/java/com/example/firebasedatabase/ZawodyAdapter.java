@@ -42,8 +42,8 @@ public class ZawodyAdapter extends RecyclerView.Adapter<ZawodyAdapter.ViewHolder
         holder.dzien.setText(arrayList.get(position).getDate().toString());
 //        holder.spinner.setAdapter(new ArrayAdapter<>(this.context, android.R.layout.simple_spinner_item,Kategoria.values()));
         //holder.kategoria.setText(arrayList.get(position).getKategoria());
-
-        holder.kategoria.setText(arrayList.get(position).getKategoria().toString());
+        holder.kategoria.setText(arrayList.get(position).getKategoriaString());
+        //holder.kategoria.setText(arrayList.get(position).getKategoria().toString());
 
         // Dodaj obsługę Spinnera z kategoriami
         ArrayAdapter<Kategoria> spinnerAdapter = new ArrayAdapter<>(context, android.R.layout.simple_spinner_item, Kategoria.values());

@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -41,21 +42,28 @@ public class MainActivity extends AppCompatActivity {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
 
         FloatingActionButton add = findViewById(R.id.addNote);
+        Intent intent = new Intent(MainActivity.this, KonsolaActivity.class);
+
+
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 View view1 = LayoutInflater.from(MainActivity.this).inflate(R.layout.add_note_dialog, null);
+                startActivity(intent);
                 TextInputLayout titleLayout, contentLayout;
-                Spinner categorySpinner = view1.findViewById(R.id.kategoria_spinner);
-                categorySpinner.setAdapter(new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_spinner_item, Kategoria.values()));
-
-                titleLayout = view1.findViewById(R.id.titleLayout);
-                contentLayout = view1.findViewById(R.id.contentLayout);
                 TextInputEditText titleET, contentET;
 
+                //SPINNER
+                Spinner categorySpinner = view1.findViewById(R.id.kategoria_spinner);
+                categorySpinner.setAdapter(new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_spinner_item, Kategoria.values()));
+                categorySpinner.getAdapter().toString();
+
+                //NAPISY
+                titleLayout = view1.findViewById(R.id.titleLayout);
+                contentLayout = view1.findViewById(R.id.contentLayout);
                 titleET = view1.findViewById(R.id.titleET);
                 contentET = view1.findViewById(R.id.contentET);
-                //dataET = view1.findViewById(R.id.task_date);
+
                 AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this)
                         .setTitle("Add")
                         .setView(view1)
@@ -66,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
                                     titleLayout.setError("This field is required!");
                                 } else if (Objects.requireNonNull(contentET.getText()).toString().isEmpty()) {
                                     contentLayout.setError("This field is required!");
+
                                 } else {
                                     ProgressDialog dialog = new ProgressDialog(MainActivity.this);
                                     dialog.setMessage("Storing in Database...");
@@ -73,6 +82,11 @@ public class MainActivity extends AppCompatActivity {
                                     Zawody zawody = new Zawody();
                                     zawody.setTitle(titleET.getText().toString());
                                     zawody.setContent(contentET.getText().toString());
+                                    //zawody.setKategoria((Kategoria) categorySpinner.getAdapter().getItem(i));
+                                    zawody.setKategoriaString(categorySpinner.getSelectedItem().toString());
+                                    zawody.setKategoria(zawody.setKategoria(zawody.getKategoriaString()));
+
+
                                     //zawody.setKategoria();
                                     database.getReference().child("notes").push().setValue(zawody).addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
@@ -126,13 +140,17 @@ public class MainActivity extends AppCompatActivity {
 
                 ZawodyAdapter adapter = new ZawodyAdapter(MainActivity.this, arrayList);
                 recyclerView.setAdapter(adapter);
-
+                //TODO:EDYTOWANIE
                 adapter.setOnItemClickListener(new ZawodyAdapter.OnItemClickListener() {
                     @Override
                     public void onClick(Zawody zawody) {
                         View view = LayoutInflater.from(MainActivity.this).inflate(R.layout.add_note_dialog, null);
                         TextInputLayout titleLayout, contentLayout;
                         TextInputEditText titleET, contentET;
+
+                        Spinner categorySpinner = view.findViewById(R.id.kategoria_spinner);
+                        categorySpinner.setAdapter(new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_spinner_item, Kategoria.values()));
+                        categorySpinner.getAdapter().toString();
 
                         titleET = view.findViewById(R.id.titleET);
                         contentET = view.findViewById(R.id.contentET);
@@ -141,6 +159,7 @@ public class MainActivity extends AppCompatActivity {
 
                         titleET.setText(zawody.getTitle());
                         contentET.setText(zawody.getContent());
+
 
                         ProgressDialog progressDialog = new ProgressDialog(MainActivity.this);
 
@@ -160,6 +179,9 @@ public class MainActivity extends AppCompatActivity {
                                             Zawody zawody1 = new Zawody();
                                             zawody1.setTitle(titleET.getText().toString());
                                             zawody1.setContent(contentET.getText().toString());
+                                            zawody1.setKategoriaString(categorySpinner.getSelectedItem().toString());
+                                            //zawody1.setKategoria(categorySpinner.getSelectedItem());
+                                            zawody1.setKategoria(zawody1.setKategoria(categorySpinner.getSelectedItem().toString()));
                                             database.getReference().child("notes").child(zawody.getKey()).setValue(zawody1).addOnSuccessListener(new OnSuccessListener<Void>() {
                                                 @Override
                                                 public void onSuccess(Void unused) {
