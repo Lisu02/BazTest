@@ -1,0 +1,55 @@
+
+h
+java:S1192J"FDefine a constant instead of duplicating this literal "notes" 4 times.(¸È‰£ÿÿÿÿÿ8ûÔœïÓ1
+z
+java:S1192@"XDefine a constant instead of duplicating this literal "This field is required!" 4 times.(‘Ô¬¸ÿÿÿÿÿ8üÔœïÓ1
+J
+java:S1604J"(Make this anonymous inner class a lambda(¸È‰£ÿÿÿÿÿ8üÔœïÓ1
+J
+java:S1604Q"(Make this anonymous inner class a lambda(œÁÈÌşÿÿÿÿ8ıÔœïÓ1
+J
+java:S1604<"(Make this anonymous inner class a lambda(÷ÿ§üüÿÿÿÿ8ıÔœïÓ1
+J
+java:S1604["(Make this anonymous inner class a lambda(òİŸ÷ıÿÿÿÿ8ıÔœïÓ1
+J
+java:S1604,"(Make this anonymous inner class a lambda(ÿØ²øÿÿÿÿ8ıÔœïÓ1
+E
+java:S1604 "(Make this anonymous inner class a lambda(ıÖÉ?8ıÔœïÓ1
+K
+java:S1604§"(Make this anonymous inner class a lambda(œÁÈÌşÿÿÿÿ8ıÔœïÓ1
+F
+java:S1604“"(Make this anonymous inner class a lambda(Âú¡ß8şÔœïÓ1
+K
+java:S1604±"(Make this anonymous inner class a lambda(¯­û©ùÿÿÿÿ8şÔœïÓ1
+K
+java:S1604¼"(Make this anonymous inner class a lambda(ôÿÖ¬ûÿÿÿÿ8şÔœïÓ1
+K
+java:S1604Â"(Make this anonymous inner class a lambda(œÁÈÌşÿÿÿÿ8şÔœïÓ1
+K
+java:S1604·"(Make this anonymous inner class a lambda(ùÏüìøÿÿÿÿ8şÔœïÓ1
+E
+java:S1604"(Make this anonymous inner class a lambda(¨çÄ8şÔœïÓ1
+t
+java:S3776$"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(¨Œşÿÿÿÿ8ŞÕœïÓ1
+H
+java:S16590"+Declare "contentLayout" on a separate line.(ŠŸª8ãÕœïÓ1
+I
+java:S16596"'Declare "contentET" on a separate line.(ˆ†Ü­üÿÿÿÿ8äÕœïÓ1
+X
+java:S1874D"6Remove this use of "ProgressDialog"; it is deprecated.(Ğ¼ø˜úÿÿÿÿ8êÕœïÓ1
+X
+java:S1874D"6Remove this use of "ProgressDialog"; it is deprecated.(Ğ¼ø˜úÿÿÿÿ8íÕœïÓ1
+O
+java:S1874E"2Remove this use of "setMessage"; it is deprecated.(¨³Ã8íÕœïÓ1
+Ÿ
+java:S1186Ğ"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ô°¤¦8õÕœïÓ1
+I
+java:S1659ƒ"+Declare "contentLayout" on a separate line.(ŠŸª8úÕœïÓ1
+J
+java:S1659„"'Declare "contentET" on a separate line.(ˆ†Ü­üÿÿÿÿ8ûÕœïÓ1
+T
+java:S1874"6Remove this use of "ProgressDialog"; it is deprecated.(ÑÍµë8ıÕœïÓ1
+T
+java:S1874"6Remove this use of "ProgressDialog"; it is deprecated.(ÑÍµë8ıÕœïÓ1
+U
+java:S1874›"2Remove this use of "setMessage"; it is deprecated.(áÓÜ®ûÿÿÿÿ8€ÖœïÓ1

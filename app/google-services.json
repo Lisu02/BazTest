@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "874529317441",
+    "firebase_url": "https://projektandroid-9eac9-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "projektandroid-9eac9",
+    "storage_bucket": "projektandroid-9eac9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:874529317441:android:f89968d114114fde581cc0",
+        "android_client_info": {
+          "package_name": "com.example.firebasedatabase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZuJAARzY40EYCEleveejEs1pflyUY8uw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:874529317441:android:f9e3d9e4837efd0b581cc0",
+        "android_client_info": {
+          "package_name": "com.example.projektandroid"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZuJAARzY40EYCEleveejEs1pflyUY8uw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
