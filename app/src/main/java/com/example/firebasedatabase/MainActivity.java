@@ -12,6 +12,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,9 +31,13 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,10 +54,14 @@ public class MainActivity extends AppCompatActivity {
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                View view1 = LayoutInflater.from(MainActivity.this).inflate(R.layout.add_note_dialog, null);
                 startActivity(intent);
+                View view1 = LayoutInflater.from(MainActivity.this).inflate(R.layout.add_note_dialog, null);
+                //startActivity(intent);
                 TextInputLayout titleLayout, contentLayout;
                 TextInputEditText titleET, contentET;
+                DatePicker wybranaData;
+
+
 
                 //SPINNER
                 Spinner categorySpinner = view1.findViewById(R.id.kategoria_spinner);
@@ -63,6 +73,12 @@ public class MainActivity extends AppCompatActivity {
                 contentLayout = view1.findViewById(R.id.contentLayout);
                 titleET = view1.findViewById(R.id.titleET);
                 contentET = view1.findViewById(R.id.contentET);
+               // wybranaData = view1.findViewById(R.id.editTextDate);
+
+                //
+
+
+
 
                 AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this)
                         .setTitle("Add")
@@ -85,6 +101,10 @@ public class MainActivity extends AppCompatActivity {
                                     //zawody.setKategoria((Kategoria) categorySpinner.getAdapter().getItem(i));
                                     zawody.setKategoriaString(categorySpinner.getSelectedItem().toString());
                                     zawody.setKategoria(zawody.setKategoria(zawody.getKategoriaString()));
+                                    //Date tmpDate = new Date(wybranaData.getYear(),wybranaData.getMonth(),wybranaData.getDayOfMonth());
+                                    //Toast.makeText(MainActivity.this, tmpDate.toString(), Toast.LENGTH_LONG).show();
+
+                                    //zawody.setDate(tmpDate);
 
 
                                     //zawody.setKategoria();
@@ -138,6 +158,8 @@ public class MainActivity extends AppCompatActivity {
                     recyclerView.setVisibility(View.VISIBLE);
                 }
 
+
+                //KLIKNIECIE KONKRETNYCH ZAWODOW
                 ZawodyAdapter adapter = new ZawodyAdapter(MainActivity.this, arrayList);
                 recyclerView.setAdapter(adapter);
                 //TODO:EDYTOWANIE
@@ -229,10 +251,18 @@ public class MainActivity extends AppCompatActivity {
                 });
             }
 
+
+
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
         });
     }
+
+
+
+
+
 }

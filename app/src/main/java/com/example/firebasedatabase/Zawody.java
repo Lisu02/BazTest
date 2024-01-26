@@ -1,6 +1,9 @@
 package com.example.firebasedatabase;
 
+import androidx.annotation.NonNull;
+
 import java.util.Date;
+import java.util.LinkedList;
 
 public class Zawody {
     String key;
@@ -8,19 +11,33 @@ public class Zawody {
     String content;
 
 
+    LinkedList<Uczestnik> uczestnikLinkedList = new LinkedList<>();
+
 
     String kategoriaString = "P";
 
     Kategoria kategoria = Kategoria.P;
-
-
-
     Date date;
 
     public Zawody() {
-
         date = new Date();
     }
+
+    //CRUD UCZESTNIKA
+    public void addUczestnik(Uczestnik uczestnik){
+        uczestnikLinkedList.add(uczestnik);
+    }
+    public void removeUczestnik(Uczestnik uczestnik){
+        uczestnikLinkedList.remove(uczestnik);
+    }
+    public Uczestnik getUczestnik(Uczestnik uczestnik){
+        int index;
+        index=uczestnikLinkedList.indexOf(uczestnik);
+        return uczestnikLinkedList.get(index);
+    }
+
+
+
     public String getKategoriaString() {
         return kategoriaString;
     }
@@ -37,7 +54,7 @@ public class Zawody {
         this.kategoria = kategoria;
     }
 
-    public Kategoria setKategoria(String litera) {
+    public Kategoria setKategoria(@NonNull String litera) {
         switch (litera) {
             case "P":
                 kategoriaString = "P";

@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -19,6 +20,8 @@ import java.util.Calendar;
 public class ZawodyAdapter extends RecyclerView.Adapter<ZawodyAdapter.ViewHolder> {
     Context context;
     ArrayList<Zawody> arrayList;
+
+    ArrayList<Uczestnik> uczestnikArrayList;
     OnItemClickListener onItemClickListener;
 
     public ZawodyAdapter(Context context, ArrayList<Zawody> arrayList) {
@@ -35,23 +38,20 @@ public class ZawodyAdapter extends RecyclerView.Adapter<ZawodyAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        //Ustawianie widokow z calej listy
         holder.title.setText(arrayList.get(position).getTitle());
         holder.subtitle.setText(arrayList.get(position).getContent());
-//        SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
-//        holder.dateField.setText(dateFormat.format(arrayList.get(position).getDate()));
-        holder.dzien.setText(arrayList.get(position).getDate().toString());
-//        holder.spinner.setAdapter(new ArrayAdapter<>(this.context, android.R.layout.simple_spinner_item,Kategoria.values()));
-        //holder.kategoria.setText(arrayList.get(position).getKategoria());
+
         holder.kategoria.setText(arrayList.get(position).getKategoriaString());
-        //holder.kategoria.setText(arrayList.get(position).getKategoria().toString());
+        holder.dataZawodow.setText(arrayList.get(position).getDate().toString());
+        //holder.dzien.setText(arrayList.get(position).getDate().toString());
 
         // Dodaj obsługę Spinnera z kategoriami
         ArrayAdapter<Kategoria> spinnerAdapter = new ArrayAdapter<>(context, android.R.layout.simple_spinner_item, Kategoria.values());
         //holder.spinnerKategoria.setAdapter("cos");
-
         // Ustaw wybraną kategorię w Spinnerze
-//        int selectedCategoryPosition = spinnerAdapter.getPosition(arrayList.get(position).getKategoriaEnum());
-//        holder.spinnerKategoria.setSelection(selectedCategoryPosition);
+        //int selectedCategoryPosition = spinnerAdapter.getPosition(arrayList.get(position).getKategoriaEnum());
+        //holder.spinnerKategoria.setSelection(selectedCategoryPosition);
 
         holder.itemView.setOnClickListener(view -> onItemClickListener.onClick(arrayList.get(position)));
     }
@@ -64,7 +64,8 @@ public class ZawodyAdapter extends RecyclerView.Adapter<ZawodyAdapter.ViewHolder
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView title, subtitle;
         TextView kategoria;
-        TextView dzien;
+        TextView dataZawodow;
+        DatePicker datka;
         EditText dateField;
         Spinner spinnerKategoria;
 
@@ -73,12 +74,13 @@ public class ZawodyAdapter extends RecyclerView.Adapter<ZawodyAdapter.ViewHolder
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            //widoki z calej listy
             title = itemView.findViewById(R.id.list_item_title);
             subtitle = itemView.findViewById(R.id.list_item_subtitle);
             //TODO:DO poprawy
-            dzien = itemView.findViewById(R.id.list_item_data);
-            //kategoria = itemView.findViewById(R.id.list_item_kategoria);
+            dataZawodow = itemView.findViewById(R.id.list_item_data);
             kategoria = itemView.findViewById(R.id.list_item_kategoria);
+
         }
     }
 
