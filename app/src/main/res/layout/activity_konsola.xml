@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".KonsolaActivity">
+
+    <Button
+        android:id="@+id/edytowanieZaowodow"
+        android:layout_width="140dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="16dp"
+        android:text="Edytuj zawody"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/edytowanieZawodnika"
+        android:layout_width="140dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="108dp"
+        android:layout_marginEnd="16dp"
+        android:text="Edytuj zawodnika"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edytowanieZaowodow" />
+
+    <Button
+        android:id="@+id/wrocKonsola"
+        android:layout_width="140dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="120dp"
+        android:text="Wróć"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/dodawanieZawodow"
+        android:layout_width="140dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="76dp"
+        android:text="Dodaj Zawody"
+        app:layout_constraintEnd_toStartOf="@+id/edytowanieZaowodow"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/dodawanieZawodnika"
+        android:layout_width="140dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="108dp"
+        android:text="Dodaj zawodnika"
+        app:layout_constraintEnd_toStartOf="@+id/edytowanieZawodnika"
+        app:layout_constraintHorizontal_bias="0.165"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dodawanieZawodow" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

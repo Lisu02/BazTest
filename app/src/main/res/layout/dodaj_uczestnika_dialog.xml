@@ -9,81 +9,54 @@
         android:layout_marginStart="10sp"
         android:layout_marginEnd="10sp"
         android:layout_marginTop="5sp"
-        android:id="@+id/titleLayout"
-        android:hint="Wprowadź tytuł">
+        android:id="@+id/nameLayout"
+        android:hint="Wprowadź imie">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textCapSentences"
-            android:id="@+id/titleET"/>
+            android:id="@+id/imieET"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/titleLayout"
+        android:layout_below="@id/nameLayout"
         android:layout_marginStart="10sp"
         android:layout_marginEnd="10sp"
         android:layout_marginTop="10sp"
-        android:hint="Wprowadź zawartość"
-        android:id="@+id/contentLayout">
+        android:hint="Wprowadź nazwisko"
+        android:id="@+id/nazwiskoLayout">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textCapSentences|textMultiLine"
-            android:id="@+id/contentET"/>
+            android:id="@+id/nazwiskoET"/>
 
     </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/dateLayout"
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:layout_below="@id/contentLayout"
-        android:layout_marginStart="10sp"
-        android:layout_marginTop="10sp"
-        android:layout_marginEnd="10sp"
-        android:hint="Wprowadz datę">
-
-
-        <EditText
-            android:id="@+id/editTextDate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Wybierz datę"
-            android:focusable="false"
-            android:clickable="true"/>
-
-<!--        <DatePicker-->
-<!--            android:id="@+id/task_date"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:calendarViewShown="true"-->
-<!--            android:headerBackground="@color/design_default_color_primary" />-->
-
-    </com.google.android.material.appbar.MaterialToolbar>
-
-
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/dateLayout"
+        android:layout_below="@id/nazwiskoLayout"
         android:layout_marginStart="10sp"
         android:layout_marginEnd="10sp"
         android:layout_marginTop="10sp"
-        android:id="@+id/kategoriaLayout">
+        android:hint="Cokolwiek !"
+        android:id="@+id/cokolwiekLayout">
 
-        <Spinner
-            android:id="@+id/kategoria_spinner"
+        <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_weight="1"
-            />
+            android:layout_height="wrap_content"
+            android:inputType="textCapSentences|textMultiLine"
+            android:id="@+id/cokolwiekET"/>
 
     </com.google.android.material.textfield.TextInputLayout>
+
+
+
 
 </RelativeLayout>

@@ -1,19 +1,49 @@
 package com.example.firebasedatabase;
 
+import androidx.annotation.NonNull;
+
 import java.util.Date;
+import java.util.LinkedList;
 
 public class Zawody {
-    String key, title, content;
+    String key;
+    String title;
+    String content;
+
+
+    LinkedList<Uczestnik> uczestnikLinkedList = new LinkedList<>();
+
+
+    String kategoriaString = "P";
 
     Kategoria kategoria = Kategoria.P;
-
-
-
     Date date;
 
     public Zawody() {
-
         date = new Date();
+    }
+
+    //CRUD UCZESTNIKA
+    public void addUczestnik(Uczestnik uczestnik){
+        uczestnikLinkedList.add(uczestnik);
+    }
+    public void removeUczestnik(Uczestnik uczestnik){
+        uczestnikLinkedList.remove(uczestnik);
+    }
+    public Uczestnik getUczestnik(Uczestnik uczestnik){
+        int index;
+        index=uczestnikLinkedList.indexOf(uczestnik);
+        return uczestnikLinkedList.get(index);
+    }
+
+
+
+    public String getKategoriaString() {
+        return kategoriaString;
+    }
+
+    public void setKategoriaString(String kategoriaString) {
+        this.kategoriaString = kategoriaString;
     }
 
     public CharSequence getKategoria() {
@@ -22,6 +52,59 @@ public class Zawody {
 
     public void setKategoria(Kategoria kategoria) {
         this.kategoria = kategoria;
+    }
+
+    public Kategoria setKategoria(@NonNull String litera) {
+        switch (litera) {
+            case "P":
+                kategoriaString = "P";
+                return Kategoria.P;
+            case "K":
+                kategoriaString = "K";
+                return Kategoria.K;
+            case "S":
+                kategoriaString = "S";
+                return Kategoria.S;
+            case "D":
+                kategoriaString = "D";
+                return Kategoria.D;
+            case "PK":
+                kategoriaString = "PK";
+                return Kategoria.PK;
+            case "PS":
+                kategoriaString = "PS";
+                return Kategoria.PS;
+            case "PD":
+                kategoriaString = "PD";
+                return Kategoria.PD;
+            case "KS":
+                kategoriaString = "KS";
+                return Kategoria.KS;
+            case "KD":
+                kategoriaString = "KD";
+                return Kategoria.KD;
+            case "SD":
+                kategoriaString = "SD";
+                return Kategoria.SD;
+            case "PKS":
+                kategoriaString = "PKS";
+                return Kategoria.PKS;
+            case "PKD":
+                kategoriaString = "PKD";
+                return Kategoria.PKD;
+            case "PSD":
+                kategoriaString = "PSD";
+                return Kategoria.PSD;
+            case "KSD":
+                kategoriaString = "KSD";
+                return Kategoria.KSD;
+            case "PKSD":
+                kategoriaString = "PKSD";
+                return Kategoria.PKSD;
+            default:
+                throw new IllegalArgumentException("Nieznana litera: " + litera);
+
+        }
     }
 
     public Date getDate() {
