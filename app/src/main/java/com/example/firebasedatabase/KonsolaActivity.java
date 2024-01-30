@@ -1,5 +1,6 @@
 package com.example.firebasedatabase;
 
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
@@ -48,9 +49,10 @@ public class KonsolaActivity extends AppCompatActivity {
         Button dodajZawody = findViewById(R.id.dodawanieZawodow);
         Button dodajZawodnika = findViewById(R.id.dodawanieZawodnika);
         Button edytujZawodnika = findViewById(R.id.edytowanieZawodnika);
-        Intent intent = new Intent(KonsolaActivity.this, MainActivity.class);
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button listaZawodnikowButton = findViewById(R.id.listaZawodnikow);
 
-
+        Intent intentWroc = new Intent(KonsolaActivity.this, MainActivity.class);
+        Intent intentListaZawodnikow = new Intent(KonsolaActivity.this, MainActivity.class);
 
 
         FirebaseApp.initializeApp(KonsolaActivity.this);
@@ -64,7 +66,14 @@ public class KonsolaActivity extends AppCompatActivity {
         wroc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(intent);
+                startActivity(intentWroc);
+            }
+        });
+
+        listaZawodnikowButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(intentListaZawodnikow);
             }
         });
 
@@ -91,6 +100,7 @@ public class KonsolaActivity extends AppCompatActivity {
                 contentLayout = view1.findViewById(R.id.contentLayout);
                 titleET = view1.findViewById(R.id.titleET);
                 contentET = view1.findViewById(R.id.contentET);
+
 
 
 
