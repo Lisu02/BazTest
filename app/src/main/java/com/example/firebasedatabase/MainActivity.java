@@ -79,59 +79,59 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-                AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this)
-                        .setTitle("Add")
-                        .setView(view1)
-                        .setPositiveButton("Add", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                if (Objects.requireNonNull(titleET.getText()).toString().isEmpty()) {
-                                    titleLayout.setError("This field is required!");
-                                } else if (Objects.requireNonNull(contentET.getText()).toString().isEmpty()) {
-                                    contentLayout.setError("This field is required!");
-
-                                } else {
-                                    ProgressDialog dialog = new ProgressDialog(MainActivity.this);
-                                    dialog.setMessage("Storing in Database...");
-                                    dialog.show();
-                                    Zawody zawody = new Zawody();
-                                    zawody.setTitle(titleET.getText().toString());
-                                    zawody.setContent(contentET.getText().toString());
-                                    //zawody.setKategoria((Kategoria) categorySpinner.getAdapter().getItem(i));
-                                    zawody.setKategoriaString(categorySpinner.getSelectedItem().toString());
-                                    zawody.setKategoria(zawody.setKategoria(zawody.getKategoriaString()));
-                                    //Date tmpDate = new Date(wybranaData.getYear(),wybranaData.getMonth(),wybranaData.getDayOfMonth());
-                                    //Toast.makeText(MainActivity.this, tmpDate.toString(), Toast.LENGTH_LONG).show();
-
-                                    //zawody.setDate(tmpDate);
-
-
-                                    //zawody.setKategoria();
-                                    database.getReference().child("notes").push().setValue(zawody).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                        @Override
-                                        public void onSuccess(Void unused) {
-                                            dialog.dismiss();
-                                            dialogInterface.dismiss();
-                                            Toast.makeText(MainActivity.this, "Saved Successfully!", Toast.LENGTH_SHORT).show();
-                                        }
-                                    }).addOnFailureListener(new OnFailureListener() {
-                                        @Override
-                                        public void onFailure(@NonNull Exception e) {
-                                            dialog.dismiss();
-                                            Toast.makeText(MainActivity.this, "There was an error while saving data", Toast.LENGTH_SHORT).show();
-                                        }
-                                    });
-                                }
-                            }
-                        })
-                        .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                dialogInterface.dismiss();
-                            }
-                        })
-                        .create();
-                alertDialog.show();
+//                AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this)
+//                        .setTitle("Add")
+//                        .setView(view1)
+//                        .setPositiveButton("Add", new DialogInterface.OnClickListener() {
+//                            @Override
+//                            public void onClick(DialogInterface dialogInterface, int i) {
+//                                if (Objects.requireNonNull(titleET.getText()).toString().isEmpty()) {
+//                                    titleLayout.setError("This field is required!");
+//                                } else if (Objects.requireNonNull(contentET.getText()).toString().isEmpty()) {
+//                                    contentLayout.setError("This field is required!");
+//
+//                                } else {
+//                                    ProgressDialog dialog = new ProgressDialog(MainActivity.this);
+//                                    dialog.setMessage("Storing in Database...");
+//                                    dialog.show();
+//                                    Zawody zawody = new Zawody();
+//                                    zawody.setTitle(titleET.getText().toString());
+//                                    zawody.setContent(contentET.getText().toString());
+//                                    //zawody.setKategoria((Kategoria) categorySpinner.getAdapter().getItem(i));
+//                                    zawody.setKategoriaString(categorySpinner.getSelectedItem().toString());
+//                                    zawody.setKategoria(zawody.setKategoria(zawody.getKategoriaString()));
+//                                    //Date tmpDate = new Date(wybranaData.getYear(),wybranaData.getMonth(),wybranaData.getDayOfMonth());
+//                                    //Toast.makeText(MainActivity.this, tmpDate.toString(), Toast.LENGTH_LONG).show();
+//
+//                                    //zawody.setDate(tmpDate);
+//
+//
+//                                    //zawody.setKategoria();
+//                                    database.getReference().child("notes").push().setValue(zawody).addOnSuccessListener(new OnSuccessListener<Void>() {
+//                                        @Override
+//                                        public void onSuccess(Void unused) {
+//                                            dialog.dismiss();
+//                                            dialogInterface.dismiss();
+//                                            Toast.makeText(MainActivity.this, "Saved Successfully!", Toast.LENGTH_SHORT).show();
+//                                        }
+//                                    }).addOnFailureListener(new OnFailureListener() {
+//                                        @Override
+//                                        public void onFailure(@NonNull Exception e) {
+//                                            dialog.dismiss();
+//                                            Toast.makeText(MainActivity.this, "There was an error while saving data", Toast.LENGTH_SHORT).show();
+//                                        }
+//                                    });
+//                                }
+//                            }
+//                        })
+//                        .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+//                            @Override
+//                            public void onClick(DialogInterface dialogInterface, int i) {
+//                                dialogInterface.dismiss();
+//                            }
+//                        })
+//                        .create();
+//                alertDialog.show();
             }
         });
 
