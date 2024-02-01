@@ -109,6 +109,7 @@ public class ZawodyDokladneDaneActivity extends AppCompatActivity {
                                     uczestnik.setImie(nameET.getText().toString());
                                     uczestnik.setnazwaZwiazku(zwiazekStrzeleckiET.getText().toString());
                                     uczestnik.setKodLicencji(numerLicencjiET.getText().toString());
+
                                     assert wybraneZawody != null;
                                     wybraneZawody.addUczestnik(uczestnik);
                                     database.getReference().child(wybraneZawody.key).push().setValue(uczestnik).addOnSuccessListener(new OnSuccessListener<Void>() {

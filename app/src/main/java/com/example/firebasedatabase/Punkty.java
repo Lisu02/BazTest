@@ -1,28 +1,35 @@
 package com.example.firebasedatabase;
 
+import androidx.annotation.NonNull;
+
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class Punkty {
 
-    Integer[] punktacja = new Integer[5];
+
+    String key;
+     LinkedList<Integer> punktacja = new LinkedList<>();
     private int index = 0;
 
     Punkty(){
-        for(Integer punkt: punktacja){
-            punkt = -1;
+        for(int i = 0 ; i < 5;i++){
+            punktacja.add(-1);
+
         }
     }
 
-    public Integer[] getPunktacja(){
+    public LinkedList<Integer> getPunktacja(){
         return punktacja;
     }
     public Integer getPunkt(){ //TODO:poprawic?\
         if(index >= 10){
             index = 0;
         }
-        return punktacja[index];
+        return punktacja.get(index);
     }
 
+    @NonNull
     public String toString(){
         StringBuilder wynik = new StringBuilder();
         for(Integer punkt: punktacja){
@@ -31,12 +38,12 @@ public class Punkty {
         return wynik.toString();
     }
 
-    public void setPunktacja(Integer[] punktacja){
+    public void setPunktacja(LinkedList punktacja){
         this.punktacja = punktacja;
     }
 
     public void setPunktacja(Integer punkt,int lokalizacja){
-        punktacja[lokalizacja] = punkt;
+        punktacja.add(lokalizacja,punkt);
     }
 
 

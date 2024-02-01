@@ -20,6 +20,7 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.LinkedList;
 import java.util.Objects;
 
 public class UczestnikDokladneDaneActivity extends AppCompatActivity {
@@ -175,18 +176,18 @@ public class UczestnikDokladneDaneActivity extends AppCompatActivity {
 
 
                 punktyET[0] = view1.findViewById(R.id.point1ET);
-                punktyET[0] = view1.findViewById(R.id.point2ET);
-                punktyET[0] = view1.findViewById(R.id.point3ET);
-                punktyET[0] = view1.findViewById(R.id.point4ET);
-                punktyET[0] = view1.findViewById(R.id.point5ET);
+                punktyET[1] = view1.findViewById(R.id.point2ET);
+                punktyET[2] = view1.findViewById(R.id.point3ET);
+                punktyET[3] = view1.findViewById(R.id.point4ET);
+                punktyET[4] = view1.findViewById(R.id.point5ET);
                 //zwiazekStrzeleckiLayout.setError("Te pole jest wymagane!");
                 //if (Objects.requireNonNull(zwiazekStrzeleckiET.getText()).toString().isEmpty())
                 ProgressDialog progressDialog = new ProgressDialog(UczestnikDokladneDaneActivity.this);
 
                 AlertDialog alertDialog = new AlertDialog.Builder(UczestnikDokladneDaneActivity.this)
-                        .setTitle("Edytuj uczestnika")
+                        .setTitle("Nadaj Punkty")
                         .setView(view1)
-                        .setPositiveButton("Edytuj", new DialogInterface.OnClickListener() {
+                        .setPositiveButton("Zatwierdź", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 boolean isError = false;
@@ -202,8 +203,17 @@ public class UczestnikDokladneDaneActivity extends AppCompatActivity {
                                     dialog.setMessage("Storing in Database...");
                                     dialog.show();
                                     Uczestnik uczestnik1 = new Uczestnik();
-                                    Punkty punkty = new Punkty();
-                                    //punkty.
+                                    uczestnik1.imie = wybranyUczestnik.imie;
+                                    uczestnik1.nazwaZwiazku = wybranyUczestnik.nazwaZwiazku;
+                                    uczestnik1.kodLicencji = wybranyUczestnik.kodLicencji;
+                                    //uczestnik1.key = wybranyUczestnik.key;
+                                    LinkedList<Integer> integerLinkedList = new LinkedList<>();
+                                    for (int j = 0; j < 5; j++) {
+                                        String tmpString = Objects.requireNonNull(punktyET[j].getText()).toString();
+                                        Integer tmp = Integer.parseInt(tmpString);
+                                        integerLinkedList.add(tmp);
+                                    }
+                                    uczestnik1.setPunktacja(integerLinkedList);
                                     database.getReference().child(klucz).child(wybranyUczestnik.getKey()).setValue(uczestnik1).addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void unused) {
@@ -225,25 +235,6 @@ public class UczestnikDokladneDaneActivity extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 dialogInterface.dismiss();
-                            }
-                        })
-                        .setNegativeButton("Delete", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                progressDialog.setTitle("Deleting...");
-                                progressDialog.show();
-                                database.getReference().child(klucz).child(wybranyUczestnik.getKey()).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
-                                    @Override
-                                    public void onSuccess(Void unused) {
-                                        progressDialog.dismiss();
-                                        Toast.makeText(UczestnikDokladneDaneActivity.this, "Deleted Successfully", Toast.LENGTH_SHORT).show();
-                                    }
-                                }).addOnFailureListener(new OnFailureListener() {
-                                    @Override
-                                    public void onFailure(@NonNull Exception e) {
-                                        progressDialog.dismiss();
-                                    }
-                                });
                             }
                         }).create();
                 alertDialog.show();

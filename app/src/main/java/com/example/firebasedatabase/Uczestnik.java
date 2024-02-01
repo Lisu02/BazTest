@@ -1,21 +1,32 @@
 package com.example.firebasedatabase;
 
+import android.content.Intent;
+
 import java.io.Serializable;
+import java.util.Arrays;
+import java.util.LinkedList;
 
 public class Uczestnik implements Serializable {
     String key;
     String imie,nazwaZwiazku,kodLicencji;
 
-    Punkty punkty;
 
+    String punktacjaStr = "empty";
+    LinkedList<Integer> punktacja = new LinkedList<>();
 
-
-    public void setPunkty(Punkty punkty){
-        this.punkty = punkty;
+    public void setPunktacja(LinkedList<Integer> punktacja){
+        this.punktacja = punktacja;
+        punktacjaStr = punktacja.toString();
     }
 
-    public Punkty getPunkty(){
-        return punkty;
+    public String getPunktacjaStr(){
+        return punktacjaStr;
+    }
+
+
+
+    public LinkedList<Integer> getPunkacja(){
+        return punktacja;
     }
 
     public String getImie() {

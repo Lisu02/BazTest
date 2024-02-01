@@ -40,7 +40,7 @@ public class UczestnikAdapter extends RecyclerView.Adapter<UczestnikAdapter.View
         holder.imie.setText(arrayList.get(position).getImie());
         holder.nazwaZwiazku.setText(arrayList.get(position).getnazwaZwiazku());
         holder.numerLicencji.setText(arrayList.get(position).getKodLicencji());
-
+        holder.punktacja.setText(arrayList.get(position).getPunktacjaStr());
         holder.itemView.setOnClickListener(view -> onItemClickListener.onClick(arrayList.get(position)));
 
     }
@@ -52,13 +52,14 @@ public class UczestnikAdapter extends RecyclerView.Adapter<UczestnikAdapter.View
 
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView imie,nazwaZwiazku,numerLicencji;
+        TextView imie,nazwaZwiazku,numerLicencji,punktacja;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imie = itemView.findViewById(R.id.list_item_uczestnik_imie);
             nazwaZwiazku = itemView.findViewById(R.id.list_item_uczestnik_nazwa_zwiazku);
             numerLicencji = itemView.findViewById(R.id.list_item_uczestnik_numer_licencji);
+            punktacja = itemView.findViewById(R.id.list_item_uczestnik_punktacja);
         }
 
 
