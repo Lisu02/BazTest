@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class Punkty {
 
-    Integer[] punktacja = new Integer[10];
-    int index = 0;
+    Integer[] punktacja = new Integer[5];
+    private int index = 0;
 
     Punkty(){
         for(Integer punkt: punktacja){
@@ -24,11 +24,11 @@ public class Punkty {
     }
 
     public String toString(){
-        String wynik = "";
+        StringBuilder wynik = new StringBuilder();
         for(Integer punkt: punktacja){
-            wynik += punkt + "|";
+            wynik.append(punkt).append("|");
         }
-        return wynik;
+        return wynik.toString();
     }
 
     public void setPunktacja(Integer[] punktacja){

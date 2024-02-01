@@ -21,7 +21,7 @@ public class ZawodyAdapter extends RecyclerView.Adapter<ZawodyAdapter.ViewHolder
     Context context;
     ArrayList<Zawody> arrayList;
 
-    ArrayList<Uczestnik> uczestnikArrayList;
+    UczestnikAdapter uczestnikAdapter;
     OnItemClickListener onItemClickListener;
 
     public ZawodyAdapter(Context context, ArrayList<Zawody> arrayList) {

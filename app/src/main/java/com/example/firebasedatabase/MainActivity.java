@@ -79,7 +79,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
                 AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this)
                         .setTitle("Add")
                         .setView(view1)
@@ -162,92 +161,15 @@ public class MainActivity extends AppCompatActivity {
                 //KLIKNIECIE KONKRETNYCH ZAWODOW
                 ZawodyAdapter adapter = new ZawodyAdapter(MainActivity.this, arrayList);
                 recyclerView.setAdapter(adapter);
-                //TODO:EDYTOWANIE
+                //TODO:WYBRANIE KONKRETNYCH ZAWODÓW (ZAWODY SZCZEGÓŁY)
                 adapter.setOnItemClickListener(new ZawodyAdapter.OnItemClickListener() {
                     @Override
                     public void onClick(Zawody zawody) {
-                        View view = LayoutInflater.from(MainActivity.this).inflate(R.layout.add_note_dialog, null);
-                        TextInputLayout titleLayout, contentLayout;
-                        TextInputEditText titleET, contentET;
-
-                        Spinner categorySpinner = view.findViewById(R.id.kategoria_spinner);
-                        categorySpinner.setAdapter(new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_spinner_item, Kategoria.values()));
-                        categorySpinner.getAdapter().toString();
-
-                        titleET = view.findViewById(R.id.titleET);
-                        contentET = view.findViewById(R.id.contentET);
-                        titleLayout = view.findViewById(R.id.titleLayout);
-                        contentLayout = view.findViewById(R.id.contentLayout);
-
-                        titleET.setText(zawody.getTitle());
-                        contentET.setText(zawody.getContent());
-
-
-                        ProgressDialog progressDialog = new ProgressDialog(MainActivity.this);
-
-                        AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this)
-                                .setTitle("Edit")
-                                .setView(view)
-                                .setPositiveButton("Save", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialogInterface, int i) {
-                                        if (Objects.requireNonNull(titleET.getText()).toString().isEmpty()) {
-                                            titleLayout.setError("This field is required!");
-                                        } else if (Objects.requireNonNull(contentET.getText()).toString().isEmpty()) {
-                                            contentLayout.setError("This field is required!");
-                                        } else {
-                                            progressDialog.setMessage("Saving...");
-                                            progressDialog.show();
-                                            Zawody zawody1 = new Zawody();
-                                            zawody1.setTitle(titleET.getText().toString());
-                                            zawody1.setContent(contentET.getText().toString());
-                                            zawody1.setKategoriaString(categorySpinner.getSelectedItem().toString());
-                                            //zawody1.setKategoria(categorySpinner.getSelectedItem());
-                                            zawody1.setKategoria(zawody1.setKategoria(categorySpinner.getSelectedItem().toString()));
-                                            database.getReference().child("notes").child(zawody.getKey()).setValue(zawody1).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                                @Override
-                                                public void onSuccess(Void unused) {
-                                                    progressDialog.dismiss();
-                                                    dialogInterface.dismiss();
-                                                    Toast.makeText(MainActivity.this, "Saved Successfully!", Toast.LENGTH_SHORT).show();
-                                                }
-                                            }).addOnFailureListener(new OnFailureListener() {
-                                                @Override
-                                                public void onFailure(@NonNull Exception e) {
-                                                    progressDialog.dismiss();
-                                                    Toast.makeText(MainActivity.this, "There was an error while saving data", Toast.LENGTH_SHORT).show();
-                                                }
-                                            });
-                                        }
-                                    }
-                                })
-                                .setNeutralButton("Close", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialogInterface, int i) {
-                                        dialogInterface.dismiss();
-                                    }
-                                })
-                                .setNegativeButton("Delete", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialogInterface, int i) {
-                                        progressDialog.setTitle("Deleting...");
-                                        progressDialog.show();
-                                        database.getReference().child("notes").child(zawody.getKey()).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
-                                            @Override
-                                            public void onSuccess(Void unused) {
-                                                progressDialog.dismiss();
-                                                Toast.makeText(MainActivity.this, "Deleted Successfully", Toast.LENGTH_SHORT).show();
-                                            }
-                                        }).addOnFailureListener(new OnFailureListener() {
-                                            @Override
-                                            public void onFailure(@NonNull Exception e) {
-                                                progressDialog.dismiss();
-                                            }
-                                        });
-                                    }
-                                }).create();
-                        alertDialog.show();
+                        Intent intentDoSczegolow = new Intent(MainActivity.this, ZawodyDokladneDaneActivity.class);
+                        intentDoSczegolow.putExtra("wybraneZawody",zawody);
+                        startActivity(intentDoSczegolow);
                     }
+                    //KONIEC LISTENERA
                 });
             }
 

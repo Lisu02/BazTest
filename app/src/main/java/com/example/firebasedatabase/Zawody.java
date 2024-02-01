@@ -2,10 +2,11 @@ package com.example.firebasedatabase;
 
 import androidx.annotation.NonNull;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.LinkedList;
 
-public class Zawody {
+public class Zawody implements Serializable {
     String key;
     String title;
     String content;
@@ -21,6 +22,16 @@ public class Zawody {
 
     public Zawody() {
         date = new Date();
+    }
+
+    public Zawody(Zawody zawody){
+        this.key=zawody.key;
+        this.uczestnikLinkedList = zawody.uczestnikLinkedList;
+        this.date = zawody.date;
+        this.kategoriaString = zawody.kategoriaString;
+        this.kategoria = zawody.kategoria;
+        this.title = zawody.title;
+        this.content = zawody.content;
     }
 
     //CRUD UCZESTNIKA

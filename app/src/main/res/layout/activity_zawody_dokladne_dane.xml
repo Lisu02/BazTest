@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".KonsolaActivity">
+
+    <Button
+        android:id="@+id/listaZawodnikow"
+        android:layout_width="140dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="100dp"
+        android:text="Lista Zawodnikow"
+        app:layout_constraintBottom_toTopOf="@+id/dodawanieZawodnika"
+        app:layout_constraintEnd_toStartOf="@+id/edytowanieZawodow"
+        app:layout_constraintHorizontal_bias="0.271"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.065" />
+
+    <Button
+        android:id="@+id/edytowanieZawodow"
+        android:layout_width="140dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="24dp"
+        android:text="Edytuj zawody"
+        app:layout_constraintBottom_toTopOf="@+id/dodawanieZawodnika"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.065" />
+
+    <Button
+        android:id="@+id/wrocKonsola"
+        android:layout_width="140dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="60dp"
+        android:text="Wróć"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/dodawanieZawodnika"
+        android:layout_width="140dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="148dp"
+        android:text="Dodaj zawodnika"
+        app:layout_constraintBottom_toTopOf="@+id/wrocKonsola"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

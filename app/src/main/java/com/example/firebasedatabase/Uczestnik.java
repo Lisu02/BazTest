@@ -1,7 +1,10 @@
 package com.example.firebasedatabase;
 
-public class Uczestnik {
-    String imie,nazwisko,kodLicencji;
+import java.io.Serializable;
+
+public class Uczestnik implements Serializable {
+    String key;
+    String imie,nazwaZwiazku,kodLicencji;
 
     Punkty punkty;
 
@@ -23,12 +26,12 @@ public class Uczestnik {
         this.imie = imie;
     }
 
-    public String getNazwisko() {
-        return nazwisko;
+    public String getnazwaZwiazku() {
+        return nazwaZwiazku;
     }
 
-    public void setNazwisko(String nazwisko) {
-        this.nazwisko = nazwisko;
+    public void setnazwaZwiazku(String nazwisko) {
+        this.nazwaZwiazku = nazwisko;
     }
 
     public String getKodLicencji() {
@@ -40,4 +43,11 @@ public class Uczestnik {
     }
 
 
+    public void setKey(String key) {
+        this.key = key;
+    }
+
+    public String  getKey(){
+        return key;
+    }
 }
