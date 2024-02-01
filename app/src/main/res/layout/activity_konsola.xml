@@ -20,12 +20,12 @@
         app:layout_constraintVertical_bias="0.522" />
 
     <Button
-        android:id="@+id/edytowanieZaowodow"
+        android:id="@+id/wyswietl_cytat"
         android:layout_width="140dp"
         android:layout_height="80dp"
         android:layout_marginTop="100dp"
         android:layout_marginEnd="16dp"
-        android:text="Edytuj zawody"
+        android:text="Wyświetl cytat"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -37,7 +37,7 @@
         android:layout_marginEnd="16dp"
         android:text="Edytuj zawodnika"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edytowanieZaowodow" />
+        app:layout_constraintTop_toBottomOf="@+id/wyswietl_cytat" />
 
     <Button
         android:id="@+id/wrocKonsola"
@@ -57,7 +57,7 @@
         android:layout_marginTop="100dp"
         android:layout_marginEnd="76dp"
         android:text="Dodaj Zawody"
-        app:layout_constraintEnd_toStartOf="@+id/edytowanieZaowodow"
+        app:layout_constraintEnd_toStartOf="@+id/wyswietl_cytat"
         app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

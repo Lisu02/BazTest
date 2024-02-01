@@ -51,6 +51,7 @@ public class KonsolaActivity extends AppCompatActivity  {
         Button dodajZawodnika = findViewById(R.id.dodawanieZawodnika);
         Button edytujZawodnika = findViewById(R.id.edytowanieZawodnika);
         Button listaZawodnikowButton = findViewById(R.id.listaZawodnikow);
+        Button cytat = findViewById(R.id.wyswietl_cytat);
 
         Intent intentWroc = new Intent(KonsolaActivity.this, MainActivity.class);
         Intent intentListaZawodnikow = new Intent(KonsolaActivity.this, ListaZawodnikowActivity.class);
@@ -61,6 +62,13 @@ public class KonsolaActivity extends AppCompatActivity  {
 
 
 
+        cytat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentCytat = new Intent(KonsolaActivity.this,CytatActivity.class);
+                startActivity(intentCytat);
+            }
+        });
 
 
         //GUZIK WROC
