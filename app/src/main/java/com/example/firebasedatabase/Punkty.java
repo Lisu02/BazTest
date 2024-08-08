@@ -8,6 +8,7 @@ import java.util.LinkedList;
 public class Punkty {
 
 
+    //test
     String key;
      LinkedList<Integer> punktacja = new LinkedList<>();
     private int index = 0;
